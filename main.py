@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import subprocess, re
 
 app = Flask(__name__)
+execute_and_return = lambda cmd: subprocess.run(cmd, shell=True).stdout.decode()
 def get_ip():
     p = subprocess.run(["ip", "addr", "show"], capture_output=True)\
     .stdout\
@@ -24,11 +25,7 @@ def get_ip():
     if matches:
         return matches
     return tuple()
-get_ip()
-'''
-ip addr show | grep -oP 'inet (?!127\.0\.0\.1)([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)' | awk '{print $2}'
 
-'''
 
 @app.route("/")
 def hoi():
@@ -40,4 +37,4 @@ def hoi():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
