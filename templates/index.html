@@ -8,7 +8,12 @@
 
   <h2>
     {%if status == 'connected'%}
-    Je bent verbonden op het internet!
+    Je bent verbonden op
+    {%if ssid != ''%}
+    <bold>{{ssid}}</bold>
+    {%else%}
+    het netwerk!
+    {%endif%}
     {%else%}
     nee.. Moet nog verbinden.
     {%endif%}

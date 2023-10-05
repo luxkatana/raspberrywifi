@@ -31,7 +31,8 @@ def get_ip():
 def hoi():
     ips = get_ip()
     if len(ips) > 0:
-        return render_template('index.html', status='connected', ip=ips[0])
+        return render_template('index.html', status='connected', ip=ips[0],
+                               ssid=execute_and_return('iwgetid -r'))
     else:
         return render_template('index.html', status='disconnected')
 
