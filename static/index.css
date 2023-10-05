@@ -18,6 +18,9 @@ h2 {
   color: #e9d35b;
   height: 50px;
 }
+bold {
+  color: greenyellow  
+}
 
 .prompt {
   width: 40%;
