@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Status</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
+</head>
+<body>
+
+  <h2>
+    {%if status == 'connected'%}
+    Je bent verbonden op het internet!
+    {%else%}
+    nee.. Moet nog verbinden.
+    {%endif%}
+     </h2>
+  <div class="prompt">
+    <p>
+        {%if status == 'connected'%}
+        {{ip}}
+        {%endif%}
+
+
+
+    </p>
+  </div>
+
+</body>
+</html>
