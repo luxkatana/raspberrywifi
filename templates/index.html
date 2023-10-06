@@ -17,15 +17,17 @@
     {%else%}
     nee.. Moet nog verbinden.
     {%endif%}
-  </h2>
-  
+     </h2>
   <div class="prompt">
     <p>
-      {%if status == 'connected'%}
-      {{ip}}
-      {%else%}
-      Probeer eventueel een netwerk te maken genaamd "TP-Link"
-      {%endif%}
+        {%if status == 'connected'%}
+        {{ip}}
+        {%else%}
+        Probeer eventueel een netwerk te maken genaamd "TP-Link"
+        {%endif%}
+
+
+
     </p>
   </div>
 
