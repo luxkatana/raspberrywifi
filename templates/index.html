@@ -3,15 +3,9 @@
 <head>
   <title>Status</title>
   <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
-  <link rel="stylesheet" href="{{url_for('static', filename='Navbar.css')}}" />
 </head>
 <body>
-  <div className="navbar">
-    <div className="links">
-      <a href="/">Home</a>
-    </div>
-  
-  </div>
+
 
   <h2>
     {%if status == 'connected'%}
@@ -24,17 +18,15 @@
     {%else%}
     nee.. Moet nog verbinden.
     {%endif%}
-     </h2>
+  </h2>
+  
   <div class="prompt">
     <p>
-        {%if status == 'connected'%}
-        {{ip}}
-        {%else%}
-        Probeer eventueel een netwerk te maken genaamd "TP-Link"
-        {%endif%}
-
-
-
+      {%if status == 'connected'%}
+      {{ip}}
+      {%else%}
+      Probeer eventueel een netwerk te maken genaamd "TP-Link"
+      {%endif%}
     </p>
   </div>
 

@@ -2,7 +2,8 @@ from flask import Flask, render_template
 import subprocess, re
 
 app = Flask(__name__)
-execute_and_return = lambda cmd: subprocess.run(cmd, shell=True).stdout.decode()
+execute_and_return = lambda cmd: subprocess.run(cmd, shell=True,
+capture_output=True).stdout.decode()
 def get_ip():
     p = subprocess.run(["ip", "addr", "show"], capture_output=True)\
     .stdout\
