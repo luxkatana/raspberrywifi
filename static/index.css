@@ -14,7 +14,7 @@ body {
 }
 
 h2 {
-  font-size: 80px;
+  font-size: 80vw;
   color: #e9d35b;
   height: 50px;
 }
@@ -24,7 +24,7 @@ bold {
 
 .prompt {
   width: 40%;
-  font-size: 30px;
+  font-size: 30vw;
 }
 @media screen and (max-width: 768px) {
   h2 {
