@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from flask import Flask, render_template
 import subprocess
 import re
@@ -16,7 +17,7 @@ def execute_command(cmd: str) -> str:
     return subprocess.run(cmd, shell=True, capture_output=True).stdout.decode().strip()
 
 app = Flask(__name__)
-def get_ip() -> tuple[str]:
+def get_ip() -> tuple:
     if os.name == 'nt':
         return (execute_command("(Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias (Get-NetAdapter | Where-Object {$_.Status -eq 'Up'} | Select-Object -First 1).Name).IPAddress"),)
         
@@ -62,5 +63,6 @@ def hoi():
 
 
 if __name__ == '__main__':
+    print("TEST SERVER GESTART, RUN een van de setup-and-run scripts voor productie.")
     app.run(debug=True, host='0.0.0.0', port=9090)
     # specifiek voor poort 9090 gekozen want port 80 heeft sudo nodig. 
