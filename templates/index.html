@@ -8,9 +8,20 @@
 
   <h2>
     {%if status == 'connected'%}
-    De raspberry pi is verbonden op
+
+    {%if raspberry == True%}
+    De raspberry
+    {%elif os_ == 'nt'%}
+    Deze windows computer 
+    {%elif os_ == 'posix'%}
+    Deze unix-gebaseerde computer 
+    {%else%}
+    Deze rare apparaat
+    {%endif%}
+    
+    is verbonden op
     {%if ssid != ''%}
-    <bold>{{ssid}}</bold>
+    <bold id="{{raspberry}}">{{ssid}}</bold>
     {%else%}
     het netwerk!
     {%endif%}
@@ -23,7 +34,7 @@
         {%if status == 'connected'%}
         {{ip}}
         {%else%}
-        Probeer eventueel een netwerk te maken genaamd "TP-Link"
+        Probeer eventueel om op een network te verbinden genaamd "TP-Link" of iets dergelijks
         {%endif%}
 
 
@@ -32,4 +43,7 @@
   </div>
 
 </body>
+<script>
+  let onHover = document.getElementById("True") || document.getElementById("False");
+</script>
 </html>
