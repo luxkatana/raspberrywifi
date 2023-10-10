@@ -64,5 +64,5 @@ def hoi():
 
 if __name__ == '__main__':
     print("TEST SERVER GESTART, RUN een van de setup-and-run scripts voor productie.")
-    app.run(debug=True, host='0.0.0.0', port=9090)
+    app.run(debug=True, host='127.0.0.1', port=9090)
     # specifiek voor poort 9090 gekozen want port 80 heeft sudo nodig.
