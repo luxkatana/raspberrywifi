@@ -6,41 +6,41 @@
 </head>
 <body>
 
-  <h2>
+<h2>
+  {%if status == 'connected'%}
+
+  {%if raspberry == True%}
+  De raspberry pi
+  {%elif os_ == 'nt'%}
+  Deze windows computer
+  {%elif os_ == 'posix'%}
+  Deze unix-gebaseerde computer
+  {%else%}
+  Deze rare apparaat
+  {%endif%}
+
+  is verbonden op
+  {%if ssid != ''%}
+  <bold id="{{raspberry}}">{{ssid}}</bold>
+  {%else%}
+  het netwerk!
+  {%endif%}
+  {%else%}
+  Nee.. Moet nog verbinden.
+  {%endif%}
+</h2>
+<div class="prompt">
+  <p>
     {%if status == 'connected'%}
-
-    {%if raspberry == True%}
-    De raspberry pi
-    {%elif os_ == 'nt'%}
-    Deze windows computer 
-    {%elif os_ == 'posix'%}
-    Deze unix-gebaseerde computer 
+    {{ip}}
     {%else%}
-    Deze rare apparaat
+    Probeer eventueel om op een network te verbinden genaamd "TP-Link" of iets dergelijks
     {%endif%}
-    
-    is verbonden op
-    {%if ssid != ''%}
-    <bold id="{{raspberry}}">{{ssid}}</bold>
-    {%else%}
-    het netwerk!
-    {%endif%}
-    {%else%}
-    nee.. Moet nog verbinden.
-    {%endif%}
-     </h2>
-  <div class="prompt">
-    <p>
-        {%if status == 'connected'%}
-        {{ip}}
-        {%else%}
-        Probeer eventueel om op een network te verbinden genaamd "TP-Link" of iets dergelijks
-        {%endif%}
 
 
 
-    </p>
-  </div>
-
+  </p>
+</div>
 </body>
+
 </html>
