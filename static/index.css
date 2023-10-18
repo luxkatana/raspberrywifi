@@ -19,6 +19,13 @@ h2 {
   height: 3vw;
   white-space: nowrap;
 }
+bold {
+  text-decoration: underline;
+}
+bold:hover {
+
+  cursor: pointer;
+}
 bold#True  {
   color: #c7053d  
 }
@@ -30,4 +37,3 @@ bold#False {
   width: 50%;
   font-size: 3vw;
 }
-

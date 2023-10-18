@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>kat - klik op kat voor nieuwe kat</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .something {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    {%if cat_url != 'none'%}
+    <img class="something" src="{{cat_url}}" onclick="change_cat()">
+    {%else%}
+    <img class="something" src="{{url_for('static', filename='nointernet.jpg')}}" onclick="change_cat()">
+    {%endif%}
+</body>
+<script>
+    let something = document.querySelector(".something");
+    function change_cat() {
+        fetch("https://api.thecatapi.com/v1/images/search")
+            .then(response => response.json())
+            .catch(err => {
+                something.src = '/static/nointernet.jpg';
+            })
+            .then(data => {
+                something.src = data[0].url;
+            })
+    }
+</script>
+
+</html>

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from flask import Flask, render_template
+import requests
 import subprocess
 import re
 import os
@@ -61,7 +62,19 @@ def hoi():
     else:
         return render_template('index.html', status='disconnected')
 
+@app.route('/kat/')
+def kat():
+    try:
+        with requests.get('https://api.thecatapi.com/v1/images/search') as response:
+            json = response.json()
+            return render_template('cat.html', cat_url=json[0].get('url'))
+    except Exception as e:
+        print(e)
+        return render_template('cat.html', cat_url='none')
 
+@app.route('/cat/')
+def cat():
+    return kat()
 if __name__ == '__main__':
     print("TEST SERVER GESTART, RUN een van de setup-and-run scripts voor productie.")
     app.run(debug=True, host='127.0.0.1', port=9090)
